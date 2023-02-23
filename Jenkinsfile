@@ -15,7 +15,7 @@ pipeline {
         }
         stage('docker run'){
             steps {
-                sh 'docker run -d -p 7000:7000 flask-rest-api'
+                sh 'docker run -d -p 5000:5000 flask-rest-api'
             }
         }
     }

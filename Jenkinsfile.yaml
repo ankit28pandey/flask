@@ -1,0 +1,18 @@
+pipeline:
+  agent:
+    any
+  stages:
+    - stage:
+        name: "Get Code"
+        steps:
+          - git:
+              branch: "main"
+              url: "https://github.com/ankit28pandey/flask.git"
+    - stage:
+        name: "docker build"
+        steps:
+          - sh 'docker build -t flask-rest-api .'
+    - stage:
+        name: "docker run"
+        steps:
+          - sh 'docker run -d -p 5000:5000 flask-rest-api'
